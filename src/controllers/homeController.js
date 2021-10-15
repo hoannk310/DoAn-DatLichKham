@@ -20,11 +20,18 @@ let postCRUD = async (req, res) => {
     let massage = await CRUDservice.createNewUser(req.body)
     console.log(massage)
     console.log(req.body)
-    return res.send('post crud from server');
+    return res.send(req.body);
+}
+
+let displayGetCRUD = async (req, res) => {
+    let data = await CRUDservice.getAllUser();
+    console.log(data)
+    return res.send(data)
 }
 
 module.exports = {
     getHomePage: getHomePage,
     getCRUD: getCRUD,
-    postCRUD: postCRUD
+    postCRUD: postCRUD,
+    displayGetCRUD: displayGetCRUD
 }
